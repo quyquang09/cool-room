@@ -1,0 +1,63 @@
+body{
+	background: #ebf3fa;
+}
+.display-none {
+    display: none !important;
+}
+.clear {
+    clear: both;
+}
+.mess {
+    color: red;
+    margin-right: 15%;
+}
+#sha_app{
+	padding: 20px 5px 8px;
+}
+#content {
+    padding: 8px 15px;
+}
+.header {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+}
+#sha_app > section:not(#sha_header){
+	padding: 24px 12px;
+}
+#sha_header i{
+	height: 50px;
+	width: 50px;
+	line-height: 50px;
+	text-align: center;
+	background: #e3edf7;
+	color: rgba(0,0,0,0.5);
+	box-shadow: 4px 4px 6px -1px rgba(0,0,0,0.15),
+				-4px -4px 6px -1px rgba(255,255,255,1);
+	border-radius: 10px;
+}
+.form-select{
+    
+    border-radius: 5px;
+}
+.select-mode {
+    padding: 8px;
+    box-shadow: 4px 4px 6px -1px rgba(0,0,0,0.15),
+				-4px -4px 6px -1px rgba(255,255,255,1);
+    border-radius: 5px;
+    margin-bottom: 12px;
+    min-height: 120px;
+}
+
+
+.see-submit {
+    box-shadow: 4px 4px 6px -1px rgba(0,0,0,0.15),
+				-4px -4px 6px -1px rgba(255,255,255,1);
+}
+.charting-notice {
+    font-size: 19px;
+    color: red;
+    text-align: center;
+    position:relative;
+}

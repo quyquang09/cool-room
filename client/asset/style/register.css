@@ -1,0 +1,10 @@
+.form-message {
+    font-size: 14px;
+    line-height: 1.6rem;
+    padding: 4px 0 0;
+    color: red;
+}
+.form-label::after{
+    content: "*";
+    color: rgb(233, 21, 21);
+}
