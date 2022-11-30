@@ -1,7 +1,14 @@
+*{ 
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+ }
 body {
   background: #007bff;
   background: linear-gradient(to right, #0062e6, #33aeff);
 }
+
 .head-title{
     font-weight: 600;
 }

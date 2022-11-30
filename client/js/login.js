@@ -1,16 +1,16 @@
-$('form').submit(function(e) {
+$('form').submit(async function(e) {
     e.preventDefault();
     var email = $('[name=email]').val();
     var password = $('[name=password]').val();
     console.log(email,password)
-    $.post(BASE_URL +AUTHEN_LOGIN,
+    $('.loader-container').removeClass('display-none')
+    await $.post(BASE_URL +AUTHEN_LOGIN,
     {
         'email' :email,
         'password':password
     },function(data){
-        console.log(data)
+        $('.loader-container').addClass('display-none')
         $('.mess-error').html(data.message)
-
         if(data.errCode ===0 ){
             localStorage.setItem(
                 'user',

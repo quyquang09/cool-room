@@ -1,0 +1,10 @@
+body{
+	max-width: 400px;
+	margin: 0 auto !important;
+}
+.container-fluid {
+	background: #ebf3fa;
+}
+#sha_app{
+	padding: 20px 5px 8px;
+}

@@ -45,7 +45,7 @@ function Validator(options) {
 
     if(formElement) {
         //Khi submit form
-        $('form').submit(function(e) {
+        $('form').submit(async function(e) {
             e.preventDefault();
             var isFormValid =true;
             options.rules.forEach(function(rule) {
@@ -56,7 +56,8 @@ function Validator(options) {
                 }
             });
             if(isFormValid) {
-                $.post(BASE_URL +AUTHEN_REGISTER ,
+            $('.loader-container').removeClass('display-none')
+              await  $.post(BASE_URL +AUTHEN_REGISTER ,
                     {
                         'firstname' : $('[name=firstname]').val(),
                         'lastname' : $('[name=lastname]').val(),
@@ -65,13 +66,14 @@ function Validator(options) {
                         'password' : $('[name=password]').val(),
                         'phonenumber' : $('[name=phonenumber]').val(),
                     },function(data){
+                     $('.loader-container').addClass('display-none')
                         console.log(data)
                         if(data.errCode === 0){
                             alert(data.message)
                             window.open('login.html','_self')
                         }
                         else {
-                            alert(data.message)
+                            $('.mess-error').html(data.message)
                         }
                     })
               

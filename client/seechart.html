@@ -8,69 +8,72 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>See-charting</title>
     <script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-<script src="https://code.highcharts.com/modules/offline-exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/offline-exporting.js"></script>
     <script type="text/javascript" src="js/config.js"></script>
     <link rel="stylesheet" href="./asset/style/seechart.css">
+    <link rel="stylesheet" href="./asset/style/defaultLayout.css">
 
 </head>
 
-<body>
-    <div id="sha_app">
-        <!-- Begin Content -->
-        <section class="col-12 mb-2" id="sha_header">
-            <div class="row px-2.5">
-                <div class="col-2 text-left ">
-                    <a href="./home.html"><i class="fa-solid fa-angle-left"></i></a>
-                </div>
-                <div class="col-10 text-center header ">
-                    <div id="content-heading">
-                        <h5>Temperature/Humidity chart</h5>
+<body >
+    <div class="container-fluid">
+        <div id="sha_app">
+            <!-- Begin Content -->
+            <section class="col-12 mb-2" id="sha_header">
+                <div class="row px-2.5">
+                    <div class="col-2 text-left ">
+                        <a href="./home.html"><i class="fa-solid fa-angle-left"></i></a>
                     </div>
-                </div>
-               
-            </div>
-        </section>
-        <div id="content">
-            
-            <div id="body">
-                <form action="readSensor">
-                    <div class="select-mode row">
-                        <div class="main-mode d-flex mb-4 col-12 align-items-center ">
-                            <label for="browser" class=" col-6">Choose a viewing mode:</label>
-                            <select id="select-mode" class="form-select col-6" >
-                                <option value="">--Select--</option>
-                                <option value="day">By Date</option>
-                                <option value="month">By Moth</option>
-                            </select>
+                    <div class="col-10 text-center header ">
+                        <div id="content-heading">
+                            <h5>Temperature/Humidity chart</h5>
                         </div>
-                            <div class="extra-mode  d-flex text-center col-12">
-                                <div id="day" class="display-none col-12">
-                                    <input class="form-control" type="date" id="releasdate" name="day" autocomplete="off">
-                                </div>
-                                <div id="month" class="display-none col-12">
-                                    <input type="month" id="month" name="month" >
-                                </div>
-                        </div>
-                        <div class="mess"></div>
                     </div>
-                </form>
-                <button name="see-submit" value="See" class="btn btn-primary btn-block see-submit"> See</button>
-                <div class="clear"></div>
+                   
+                </div>
+            </section>
+            <div id="content">
+                
+                <div id="body">
+                    <form action="readSensor">
+                        <div class="select-mode row">
+                            <div class="main-mode d-flex mb-4 col-12 align-items-center ">
+                                <label for="browser" class=" col-6">Choose a viewing mode:</label>
+                                <select id="select-mode" class="form-select col-6" >
+                                    <option value="">--Select--</option>
+                                    <option value="day">By Date</option>
+                                    <option value="month">By Moth</option>
+                                </select>
+                            </div>
+                                <div class="extra-mode  d-flex text-center col-12">
+                                    <div id="day" class="display-none col-12">
+                                        <input class="form-control" type="date" id="releasdate" name="day" autocomplete="off">
+                                    </div>
+                                    <div id="month" class="display-none col-12">
+                                        <input type="month" id="month" name="month" >
+                                    </div>
+                            </div>
+                            <div class="mess"></div>
+                        </div>
+                    </form>
+                    <button name="see-submit" value="See" class="btn btn-primary btn-block see-submit"> See</button>
+                    <div class="clear"></div>
+                </div>
+                <div class="charting-notice"></div>
+                <figure class="highcharts-figure">
+                    <div id="container"></div>
+    
+                    <p class="highcharts-description">
+                    </p>
+                </figure>
             </div>
-            <div class="charting-notice"></div>
-            <figure class="highcharts-figure">
-                <div id="container"></div>
-
-                <p class="highcharts-description">
-                </p>
-            </figure>
         </div>
-    </div>
-
-    <!-- End Content -->
-    </div>
-    </div>
+    
+        <!-- End Content -->
+        </div>
+        </div>
+    </>
     <script type="text/javascript" src="js/seeGraph.js"></script>
 
 </body>

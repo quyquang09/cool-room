@@ -1,6 +1,4 @@
-body{
-	background: #ebf3fa;
-}
+
 .display-none {
     display: none !important;
 }
@@ -10,9 +8,6 @@ body{
 .mess {
     color: red;
     margin-right: 15%;
-}
-#sha_app{
-	padding: 20px 5px 8px;
 }
 #content {
     padding: 8px 15px;

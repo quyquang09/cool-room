@@ -12,11 +12,15 @@
             integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
     <link rel="stylesheet" href="./asset/style/register.css">
+    <link rel="stylesheet" href="./asset/style/loading.css">
     <script type="text/javascript" src="js/config.js"></script>
 </head>
 
 <body>
-    <div class="container">
+    <div class="contain">
+        <div class='loader-container display-none'>
+            <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+        </div>
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card">
@@ -26,7 +30,8 @@
                     </header>
                     <article class="card-body">
                         <form action="register" method="post" class="form" id="form-1">
-                            <small class="form-text text-muted mb-2">We will never share your information with anyone else.</small>
+                            <small class="form-text text-muted mb-2 ">We will never share your information with anyone else.</small>
+                            <div class="mess-error"></div>
                             <div class="form-row">
                                 <div class="col form-group">
                                     <label class="form-label">First name </label>
