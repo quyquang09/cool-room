@@ -9,12 +9,14 @@
         integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="./asset/style/home.css">
     <link rel="stylesheet" href="./asset/style/defaultLayout.css">
 
     <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-database.js"></script>
+    <script  type="text/javascript" src="./js/configFirebase.js"></script>
+    <script type="text/javascript" src="js/config.js"></script>
 </head>
 
 <body class="">
@@ -52,7 +54,7 @@
                     </div>
                 </div>
               </section>
-            <section class="col-12" id="sha_energy_tab">
+            <section class="col-12" id="sha-temp-humi">
                  <div>
                    <div class="row ">
                      <div class="col-10">
@@ -92,11 +94,11 @@
             <section class="col-12" id="sha_body">
                 <div class="row sha_tile">
                     <ul class="col-12 text-center">
-                        <li>
+                        <li class="control-light">
                             <span class="text-center">
                                 <i class="fa-regular fa-lightbulb icon-device icon-lights"></i>
                                 <span class="device_name">Main Light</span>
-                                <span class="device_status status-lights">Status : OFF</span>
+                                <span class="device_status status-lights">Status : OFF </span>
                                 <div class="toggle-button-cover">
                                   <div class="button r" id="button-1">
                                     <input type="checkbox" class="switch-toggle" id="toggle-lights" />
@@ -104,20 +106,52 @@
                                     <div class="layer"></div>
                                   </div>
                               </div>
+                              <div class="range-wrap display-none sub-control-light">
+                                <span >Light intensity</span>
+                                <div class="range-value" id="rangeV"></div>
+                                <input id="range" type="range" min="0" max="255" value="50" step="1">
+                              </div>
+                              <div class="more-btn more-control-light">⊻</div>
                             </span>
                         </li>
-                        <li>
+                        <li class="control-fan">
                             <span class="inactive">
                                 <i class="fa-solid fa-fan icon-device icon-fan"></i>
                                 <span class="device_name">Fan</span>
-                                <span class="device_status status-fan">Status : OFF</span>
+                                <span class="device_status status-fan">Status : OFF </span>
                                 <div class="toggle-button-cover">
                                   <div class="button r" id="button-1">
                                     <input type="checkbox" class="switch-toggle"id="toggle-fan" />
                                     <div class="knobs"></div>
                                     <div class="layer"></div>
                                   </div>
-                              </div>
+                                </div>
+                               <div class="sub-control-fan display-none">
+                                <div class="form-check">
+                                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="select-handwork">
+                                  <label class="form-check-label float-left" for="select-handwork">
+                                    Handwork
+                                  </label>
+                                  <div class="form-group sub-handword display-none">
+                                      <label  style="font-size: 14px;"  for="select-speed-fan">Fan speed :</label>
+                                      <select class="form-control" id="select-speed-fan" style="height:26px;padding: 0px 12px">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                      </select>
+                                  </div>
+                                  
+                                </div>
+                                <div class="form-check">
+                                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="select-auto" checked>
+                                  <label class="form-check-label float-left" for="select-auto">
+                                    Automation
+                                  </label>
+                                </div>
+                                  
+                               </div>
+                              <div class="more-btn more-control-fan">⊻</div>
                             </span>
                         </li>
                     </ul>
@@ -126,7 +160,7 @@
                             <span class="text-center">
                                 <i class="fa-regular fa-snowflake icon-device icon-ac"></i>
                                 <span class="device_name">AC</span>
-                                <span class="device_status status-ac">Status : OFF</span>
+                                <span class="device_status status-ac">Status : OFF </span>
                                 <div class="toggle-button-cover">
                                   <div class="button r" id="button-1">
                                     <input type="checkbox" class="switch-toggle" id="toggle-ac" />
@@ -140,7 +174,7 @@
                             <span>
                               <i class="fa-solid fa-bolt icon-device icon-power"></i>
                                 <span class="device_name">Power save</span>
-                                <span class="device_status status-power">Status : OFF</span>
+                                <span class="device_status status-power">Status : OFF </span>
                                 <div class="toggle-button-cover">
                                   <div class="button r" id="button-1">
                                     <input type="checkbox" class="switch-toggle" id="toggle-power" />
@@ -172,13 +206,13 @@
                             </li>
                             <li>
                                 <span>
-                                    <i class="fa fa-gear"></i>
+                                    <a  href="./settings.html" style="color: rgba(0,0,0,0.5);"><i class="fa fa-gear"></i></a>
                                 </span>
                             </li>
                         </ul>
                     </div>
                 </div>
-            </đi>
+            </div>
 
         </div>
     </div>

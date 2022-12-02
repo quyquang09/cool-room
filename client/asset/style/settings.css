@@ -1,0 +1,32 @@
+.container-fluid {
+    min-height: 100vh;
+    position: relative;
+}
+#sha_footer {
+    position: absolute;
+    bottom: 15px;
+}
+
+#sha-temp-humi > div{
+	/* height: 65px; */
+	/* line-height: 59px; */
+	padding: 0 25px;
+	background: #e3edf7;
+	box-shadow: 4px 4px 6px -1px rgba(0,0,0,0.15),
+				-4px -4px 6px -1px rgba(255,255,255,1);
+	border-radius: 35px;
+}
+#sha-temp-humi .title {
+    padding: 12px 0px 0px ;
+    font-weight: 600;
+    font-size: 18px;
+}
+.wrapper-btn {
+    display: flex;
+    justify-content: center;
+    padding: 8px 0;
+}
+.mess-sample , .mess-warning {
+    color: red;
+    text-align: center;
+}
